@@ -29,6 +29,7 @@ h1 {
 #quotes {
     padding-left: 60px;
     padding-top: 1em;
+    width: 380px;
 }
 
 input#search {

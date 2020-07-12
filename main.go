@@ -16,6 +16,7 @@ func main() {
 	app.Static("/", "./public")
 
 	app.Get("/", routes.Index)
+	app.Post("/v1/new", routes.Write)
 
 	app.Listen(3000)
 }
