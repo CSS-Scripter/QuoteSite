@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "Sansation";
+    src: url(Sansation-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Sansation";
+    src: url(Sansation-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Sansation";
+    src: url(Sansation-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Sansation";
+    src: url(Sansation-Light.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Sansation";
+    src: url(Sansation-Light.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Sansation";
+    src: url(Sansation-LightItalic.ttf);
+    font-weight: 100;
+    font-style: italic;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <meta name="description" content="A simple quote viewing site">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <header>
+        <h2>Quote</h2>
+    </header>
+    <section id="quotes">
+        <h1>Quotes</h1>
+        <label for="search"></label>
+        <input id="search" placeholder="Give me a quick search" />
+
+        {{range .Quotes}}
+            <div class="quote">
+                <p class="message">"{{ .Message }}"</p>
+                <p class="by">
+                    <span class="bold">{{ .By }}</span> {{ .Year }}
+                </p>
+            </div>
+        {{end}}
+    </section>
+</body>
+</html>

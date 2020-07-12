@@ -1,0 +1,89 @@
+@import "./font/sansation.css";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Sansation";
+}
+
+header {
+    width: 100%;
+    background-color: #253C78;
+}
+
+h2 {
+    color: #FFF;
+    font-size: 24px;
+    padding: 0.7em;
+    padding-left: 2em;
+    margin: 0;
+    font-weight: lighter;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: normal;
+}
+
+#quotes {
+    padding-left: 60px;
+    padding-top: 1em;
+}
+
+input#search {
+    width: 350px;
+    fill: none;
+    background: none;
+    border: 3px solid #D36582;
+    color: #D36582;
+    padding: 0.4em;
+    padding-left: 1.2em;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input#search::placeholder {
+    color: #D36582;
+    opacity: 1;
+    transition: opacity 400ms;
+}
+
+input#search:focus {
+    outline: none;
+}
+
+input#search:focus::placeholder {
+    opacity: 0;
+    transition: opacity 400ms;
+}
+
+.quote {
+    border-left: 5px solid #D36582;
+    border-radius: 5px 5px;
+    margin: 1em 0;
+    padding: 6px 1em;
+}
+
+.quote p {
+    margin: 0;
+    padding: 0;
+}
+
+.quote p.message {
+    font-size: 18px;
+    font-weight: normal;
+    color: #444;
+    line-break: normal;
+    padding-bottom: 10px;
+}
+
+.quote p.by {
+    font-size: 14px;
+    color: #253C78;
+}
+
+span.bold {
+    font-weight: bold;
+}
