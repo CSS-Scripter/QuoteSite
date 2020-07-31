@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
+	"../structs"
+
 	"github.com/gofiber/fiber"
 )
 
@@ -21,7 +23,7 @@ func Write(c *fiber.Ctx) {
 	c.Send(message)
 }
 
-func isQuoteValid(quote Quote) bool {
+func isQuoteValid(quote structs.Quote) bool {
 	if quote.Message == "" || quote.By == "" || quote.Year == "" {
 		return false
 	}
@@ -30,7 +32,7 @@ func isQuoteValid(quote Quote) bool {
 
 func writeToFile(content string) bool {
 	quotes := readQuotes()
-	var quote Quote
+	var quote structs.Quote
 	err := json.Unmarshal([]byte(content), &quote)
 	check(err)
 
@@ -38,7 +40,7 @@ func writeToFile(content string) bool {
 		return false
 	}
 
-	quotes = append([]Quote{quote}, quotes...)
+	quotes = append([]structs.Quote{quote}, quotes...)
 	quoteString, err := json.Marshal(quotes)
 	check(err)
 	err = ioutil.WriteFile("quotes.json", []byte(quoteString), 0644)
