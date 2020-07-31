@@ -88,3 +88,24 @@ input#search:focus::placeholder {
 span.bold {
     font-weight: bold;
 }
+
+@media (max-width: 600px) {
+    #quotes {
+        padding-left: 30px;
+        width: auto;
+    }
+
+    input#search {
+        width: auto;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .quote p.message {
+        font-size: 14px;
+    }
+
+    .quote p.by {
+        font-size: 12px;
+    }
+}
