@@ -21,6 +21,7 @@ func main() {
 
 	app.Get("/", routes.Index)
 	app.Get("/:id", routes.IndexWithID)
+	app.Post("/:id/new", routes.WriteWithID)
 	app.Post("/v1/new", routes.Write)
 
 	app.Listen(3000)

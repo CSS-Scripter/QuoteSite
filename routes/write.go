@@ -2,18 +2,18 @@ package routes
 
 import (
 	"encoding/json"
-	"io/ioutil"
 
+	"../data"
 	"../structs"
 
 	"github.com/gofiber/fiber"
 )
 
-// Write writes away an quote
-func Write(c *fiber.Ctx) {
+// WriteWithID writes to a quote to a server by it's server ID
+func WriteWithID(c *fiber.Ctx) {
 	c.Accepts("json", "text")
 	c.Accepts("application/json")
-	succes := writeToFile(c.Body())
+	succes := createQuote(c.Params("id"), c.Body())
 	var message string
 	if succes {
 		message = `{"status":"200","message":"Quote created"}`
@@ -23,27 +23,22 @@ func Write(c *fiber.Ctx) {
 	c.Send(message)
 }
 
-func isQuoteValid(quote structs.Quote) bool {
-	if quote.Message == "" || quote.By == "" || quote.Year == "" {
-		return false
-	}
-	return true
-}
-
-func writeToFile(content string) bool {
-	quotes := readQuotes()
+func createQuote(serverID string, content string) bool {
 	var quote structs.Quote
 	err := json.Unmarshal([]byte(content), &quote)
 	check(err)
 
-	if !isQuoteValid(quote) {
+	if !isQuoteValid(quote) || len(serverID) >= 25 {
 		return false
 	}
 
-	quotes = append([]structs.Quote{quote}, quotes...)
-	quoteString, err := json.Marshal(quotes)
-	check(err)
-	err = ioutil.WriteFile("quotes.json", []byte(quoteString), 0644)
-	check(err)
+	data.CreateQuote(serverID, quote)
+	return true
+}
+
+func isQuoteValid(quote structs.Quote) bool {
+	if quote.Message == "" || quote.By == "" || quote.Year == "" {
+		return false
+	}
 	return true
 }

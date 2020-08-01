@@ -1,12 +1,7 @@
 package routes
 
 import (
-	"encoding/json"
-	"io/ioutil"
-	"os"
-
 	"../data"
-	"../structs"
 
 	"github.com/gofiber/fiber"
 )
@@ -27,17 +22,4 @@ func check(e error) {
 	if e != nil {
 		panic(e)
 	}
-}
-
-func readQuotes() []structs.Quote {
-	path, err := os.Getwd()
-	check(err)
-	data, err := ioutil.ReadFile(path + "/quotes.json")
-	check(err)
-	quotesJSONString := string(data)
-	var quotes []structs.Quote
-	if err := json.Unmarshal([]byte(quotesJSONString), &quotes); err != nil {
-		panic(err)
-	}
-	return quotes
 }
