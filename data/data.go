@@ -51,15 +51,15 @@ func openConnection() *sql.DB {
 func GetQuotesFromServer(serverID string) []structs.Quote {
 	db := openConnection()
 	defer db.Close()
-	rows, err := db.Query("SELECT * FROM quotes WHERE server_id = $1 ORDER BY created_at DESC", serverID)
+	rows, err := db.Query("SELECT quote, by, year FROM quotes WHERE server_id = $1 ORDER BY created_at DESC", serverID)
 	check(err)
 
 	var results []structs.Quote
 
 	defer rows.Close()
 	for rows.Next() {
-		var id, server, quote, by, year, createdAt string
-		err = rows.Scan(&id, &server, &quote, &by, &year, &createdAt)
+		var quote, by, year string
+		err = rows.Scan(&quote, &by, &year)
 
 		results = append(results, structs.Quote{
 			Message: quote,
