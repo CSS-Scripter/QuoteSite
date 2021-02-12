@@ -1,8 +1,9 @@
 package main
 
 import (
-	"./data"
-	"./routes"
+	"app/data"
+	"app/routes"
+
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/template/html"
 )

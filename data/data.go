@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"../structs"
+	"app/structs"
 
 	// Blanc import because
 	_ "github.com/lib/pq"

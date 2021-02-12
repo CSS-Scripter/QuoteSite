@@ -3,8 +3,8 @@ package routes
 import (
 	"encoding/json"
 
-	"../data"
-	"../structs"
+	"app/data"
+	"app/structs"
 
 	"github.com/gofiber/fiber"
 )

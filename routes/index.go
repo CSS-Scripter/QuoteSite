@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"../data"
+	"app/data"
 
 	"github.com/gofiber/fiber"
 )
